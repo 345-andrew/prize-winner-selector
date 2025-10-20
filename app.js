@@ -1,5 +1,6 @@
 // State management
 let participants = [];
+let isListVisible = false;
 
 // DOM elements
 const fileUpload = document.getElementById('fileUpload');
@@ -13,12 +14,14 @@ const shufflingNames = document.getElementById('shufflingNames');
 const winnerAnnouncement = document.getElementById('winnerAnnouncement');
 const winnerName = document.getElementById('winnerName');
 const closeWinnerBtn = document.getElementById('closeWinnerBtn');
+const toggleParticipantsBtn = document.getElementById('toggleParticipantsBtn');
 
 // Event listeners
 fileUpload.addEventListener('change', handleFileUpload);
 selectWinnerBtn.addEventListener('click', startWinnerSelection);
 clearBtn.addEventListener('click', clearAllParticipants);
 closeWinnerBtn.addEventListener('click', closeWinnerAnnouncement);
+toggleParticipantsBtn.addEventListener('click', toggleParticipantsList);
 
 // Handle file upload
 function handleFileUpload(event) {
@@ -64,14 +67,30 @@ function updateUI() {
     selectWinnerBtn.disabled = !hasParticipants;
     clearBtn.disabled = !hasParticipants;
     
+    // Show/hide toggle button based on participants count
+    if (hasParticipants) {
+        toggleParticipantsBtn.style.display = 'inline-block';
+    } else {
+        toggleParticipantsBtn.style.display = 'none';
+        isListVisible = false;
+    }
+    
     // Display participants list
     if (participants.length === 0) {
         participantsList.innerHTML = '<p style="color: #999; text-align: center;">No participants yet. Upload a file to get started.</p>';
+        participantsList.classList.remove('hidden');
     } else {
         participantsList.innerHTML = participants
             .map((p, index) => `<div class="participant-item">${index + 1}. ${p}</div>`)
             .join('');
+        // Hide list by default when participants are loaded
+        if (!isListVisible) {
+            participantsList.classList.add('hidden');
+        }
     }
+    
+    // Update toggle button text
+    updateToggleButtonText();
 }
 
 // Start winner selection with animation
@@ -116,6 +135,7 @@ function startWinnerSelection() {
 function clearAllParticipants() {
     if (confirm('Are you sure you want to clear all participants?')) {
         participants = [];
+        isListVisible = false;
         updateUI();
         fileInfo.textContent = 'No file selected';
         fileUpload.value = '';
@@ -125,6 +145,24 @@ function clearAllParticipants() {
 // Close winner announcement
 function closeWinnerAnnouncement() {
     winnerAnnouncement.classList.add('hidden');
+}
+
+// Toggle participants list visibility
+function toggleParticipantsList() {
+    isListVisible = !isListVisible;
+    if (isListVisible) {
+        participantsList.classList.remove('hidden');
+    } else {
+        participantsList.classList.add('hidden');
+    }
+    updateToggleButtonText();
+}
+
+// Update toggle button text based on visibility state
+function updateToggleButtonText() {
+    if (participants.length > 0) {
+        toggleParticipantsBtn.textContent = isListVisible ? '👁️ Hide List' : '👁️ Show List';
+    }
 }
 
 // Initialize UI on page load
