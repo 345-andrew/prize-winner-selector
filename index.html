@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prize Winner Selector</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎁 Prize Winner Selector</h1>
+        
+        <div class="controls">
+            <div class="upload-section">
+                <label for="fileUpload" class="btn btn-upload">
+                    📂 Upload Participants File
+                    <input type="file" id="fileUpload" accept=".txt" style="display: none;">
+                </label>
+                <p class="file-info" id="fileInfo">No file selected</p>
+            </div>
+            
+            <div class="action-buttons">
+                <button id="selectWinnerBtn" class="btn btn-primary" disabled>
+                    🎲 Select Winner
+                </button>
+                <button id="clearBtn" class="btn btn-danger" disabled>
+                    🗑️ Clear All Participants
+                </button>
+            </div>
+        </div>
+        
+        <div class="participants-section">
+            <h2>Participants (<span id="participantCount">0</span>)</h2>
+            <div id="participantsList" class="participants-list"></div>
+        </div>
+        
+        <div id="animationContainer" class="animation-container hidden">
+            <div class="spinner"></div>
+            <div class="shuffling-names" id="shufflingNames"></div>
+        </div>
+        
+        <div id="winnerAnnouncement" class="winner-announcement hidden">
+            <h2>🎉 Winner 🎉</h2>
+            <div class="winner-name" id="winnerName"></div>
+            <button id="closeWinnerBtn" class="btn btn-secondary">Close</button>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
