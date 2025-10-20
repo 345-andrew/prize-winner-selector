@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0066CC 0%, #003B5C 100%);
     min-height: 100vh;
     padding: 20px;
     display: flex;
@@ -60,12 +60,12 @@ h1 {
 }
 
 .btn-upload {
-    background: #4CAF50;
+    background: #00C7B1;
     color: white;
 }
 
 .btn-primary {
-    background: #2196F3;
+    background: #0066CC;
     color: white;
     font-size: 18px;
     padding: 15px 30px;
@@ -84,7 +84,7 @@ h1 {
 }
 
 .btn-toggle {
-    background: #FF9800;
+    background: #00A3E0;
     color: white;
     padding: 10px 20px;
     font-size: 14px;
@@ -165,7 +165,7 @@ h1 {
     width: 100px;
     height: 100px;
     border: 10px solid #f3f3f3;
-    border-top: 10px solid #667eea;
+    border-top: 10px solid #0066CC;
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin-bottom: 30px;
@@ -234,15 +234,15 @@ h1 {
     font-weight: bold;
     text-align: center;
     padding: 40px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0066CC 0%, #003B5C 100%);
     border-radius: 20px;
-    box-shadow: 0 0 50px rgba(102, 126, 234, 0.5);
+    box-shadow: 0 0 50px rgba(0, 102, 204, 0.5);
     animation: glow 2s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
-    0% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
-    100% { box-shadow: 0 0 50px rgba(102, 126, 234, 1); }
+    0% { box-shadow: 0 0 20px rgba(0, 102, 204, 0.5); }
+    100% { box-shadow: 0 0 50px rgba(0, 102, 204, 1); }
 }
 
 /* Scrollbar styling */
