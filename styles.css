@@ -83,6 +83,13 @@ h1 {
     margin-top: 20px;
 }
 
+.btn-toggle {
+    background: #FF9800;
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
 .file-info {
     margin-top: 10px;
     color: #666;
@@ -98,10 +105,17 @@ h1 {
     margin-top: 30px;
 }
 
+.participants-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
 .participants-section h2 {
     color: #333;
-    margin-bottom: 15px;
     font-size: 1.5em;
+    margin: 0;
 }
 
 .participants-list {
@@ -111,6 +125,11 @@ h1 {
     border-radius: 8px;
     padding: 15px;
     background: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.participants-list.hidden {
+    display: none;
 }
 
 .participant-item {

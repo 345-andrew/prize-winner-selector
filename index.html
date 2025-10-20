@@ -30,8 +30,13 @@
         </div>
         
         <div class="participants-section">
-            <h2>Participants (<span id="participantCount">0</span>)</h2>
-            <div id="participantsList" class="participants-list"></div>
+            <div class="participants-header">
+                <h2>Participants (<span id="participantCount">0</span>)</h2>
+                <button id="toggleParticipantsBtn" class="btn btn-toggle" style="display: none;">
+                    👁️ Show List
+                </button>
+            </div>
+            <div id="participantsList" class="participants-list hidden"></div>
         </div>
         
         <div id="animationContainer" class="animation-container hidden">
